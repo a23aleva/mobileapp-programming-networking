@@ -5,6 +5,9 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 @SuppressWarnings("FieldCanBeLocal")
 public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
 
@@ -18,10 +21,11 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
         new JsonFile(this, this).execute(JSON_FILE);
 
-        ArrayList<RecyclerViewItem> items = new ArrayList<>(Arrays.asList(
-                new RecyclerViewItem("Matterhorn"),
-                new RecyclerViewItem("Mont Blanc"),
-                new RecyclerViewItem("Denali")
+        private ArrayList<String> listData = new ArrayList<>(Arrays.asList(mountainNames));
+        private ArrayList<Mountain> mountainArrayList = new ArrayList<>();
+                new Mountain("Matterhorn"),
+                new Mountain("Mont Blanc"),
+                new Mountain("Denali")
         ));
 
     }

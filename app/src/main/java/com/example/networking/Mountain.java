@@ -48,4 +48,10 @@ public class Mountain {
     public void setHeight(int height) {
         this.height = height;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
 }
