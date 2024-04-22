@@ -13,6 +13,8 @@ import java.util.Arrays;
 @SuppressWarnings("FieldCanBeLocal")
 public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
 
+    private ArrayList<Mountain> mountainArrayList;
+
     private final String JSON_URL = "HTTPS_URL_TO_JSON_DATA_CHANGE_THIS_URL";
     private final String JSON_FILE = "mountains.json";
 
@@ -23,8 +25,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
         new JsonFile(this, this).execute(JSON_FILE);
 
-      //  private ArrayList<String> listData = new ArrayList<>(Arrays.asList(mountainNames));
-        ArrayList<Mountain> mountainArrayList = new ArrayList<>();
+        mountainArrayList = new ArrayList<>();
 
         mountainArrayList.add(new Mountain("Matterhorn","Alps",4478));
         mountainArrayList.add(new Mountain("Mont Blanc","Alps",4808));
