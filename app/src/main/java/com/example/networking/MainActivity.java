@@ -21,12 +21,19 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
         new JsonFile(this, this).execute(JSON_FILE);
 
-        private ArrayList<String> listData = new ArrayList<>(Arrays.asList(mountainNames));
-        private ArrayList<Mountain> mountainArrayList = new ArrayList<>();
-                new Mountain("Matterhorn"),
-                new Mountain("Mont Blanc"),
-                new Mountain("Denali")
-        ));
+      //  private ArrayList<String> listData = new ArrayList<>(Arrays.asList(mountainNames));
+        ArrayList<Mountain> mountainArrayList = new ArrayList<>();
+
+        mountainArrayList.add(new Mountain("Matterhorn","Alps",4478));
+        mountainArrayList.add(new Mountain("Mont Blanc","Alps",4808));
+        mountainArrayList.add(new Mountain("Denali","Alaska",6190));
+
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, items, new RecyclerViewAdapter.OnClickListener() {
+            @Override
+            public void onClick(Mountain item) {
+                Toast.makeText(MainActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
