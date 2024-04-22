@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,12 +30,16 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         mountainArrayList.add(new Mountain("Mont Blanc","Alps",4808));
         mountainArrayList.add(new Mountain("Denali","Alaska",6190));
 
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, items, new RecyclerViewAdapter.OnClickListener() {
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mountainArrayList, new RecyclerViewAdapter.OnClickListener() {
             @Override
-            public void onClick(Mountain item) {
-                Toast.makeText(MainActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
+            public void onClick(Mountain mountain) {
+
             }
         });
+
+        RecyclerView view = findViewById(R.id.recycler_view);
+        view.setLayoutManager(new LinearLayoutManager(this));
+        view.setAdapter(adapter);
 
     }
 
