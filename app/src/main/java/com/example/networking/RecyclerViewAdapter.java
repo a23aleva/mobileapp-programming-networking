@@ -63,10 +63,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         void onClick(Mountain item);
     }
 
-    public void updateData () {
+    public void updateData (List<Mountain> newMountainList) {
         Log.d("T", "TEST");
-        /*items.clear();
+        items.clear();
         items.addAll(newMountainList);
-        notifyDataSetChanged();*/
+        notifyDataSetChanged();
     }
 }

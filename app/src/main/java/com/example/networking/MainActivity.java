@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     private RecyclerViewAdapter adapter;
     private Gson gson;
-    private final String JSON_URL = "HTTPS_URL_TO_JSON_DATA_CHANGE_THIS_URL";
+    private final String JSON_URL = "https://mobprog.webug.se/json-api?login=brom";
     private final String JSON_FILE = "mountains.json";
 
     @Override
@@ -34,19 +34,20 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
         gson = new Gson();
 
-        new JsonFile(this, this).execute(JSON_FILE);
-
-        /*
-        mountainArrayList.add(new Mountain("Matterhorn","Alps",4478));
-        mountainArrayList.add(new Mountain("Mont Blanc","Alps",4808));
-        mountainArrayList.add(new Mountain("Denali","Alaska",6190));*/
-
         this.adapter = new RecyclerViewAdapter(this, mountainArrayList, new RecyclerViewAdapter.OnClickListener() {
             @Override
             public void onClick(Mountain mountain) {
                 Toast.makeText(MainActivity.this, mountain.info(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        //new JsonFile(this, this).execute(JSON_FILE);
+        new JsonTask(this).execute(JSON_URL);
+
+        /*
+        mountainArrayList.add(new Mountain("Matterhorn","Alps",4478));
+        mountainArrayList.add(new Mountain("Mont Blanc","Alps",4808));
+        mountainArrayList.add(new Mountain("Denali","Alaska",6190));*/
 
         RecyclerView view = findViewById(R.id.recycler_view);
         view.setLayoutManager(new LinearLayoutManager(this));
@@ -60,6 +61,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         Type type = new TypeToken<List<Mountain>>() {}.getType();
         ArrayList<Mountain> listOfMountains = gson.fromJson(json, type);
         this.mountainArrayList = listOfMountains;
-        //adapter.updateData();
+        adapter.updateData(listOfMountains);
     }
 }

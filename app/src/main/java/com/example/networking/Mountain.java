@@ -53,5 +53,4 @@ public class Mountain {
     public String toString() {
         return name;
     }
-
 }
