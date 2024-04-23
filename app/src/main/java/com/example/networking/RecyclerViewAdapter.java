@@ -1,6 +1,7 @@
 package com.example.networking;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,9 +63,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         void onClick(Mountain item);
     }
 
-    public void updateData (ArrayList<Mountain> newMountainList) {
-        mountains.clear();
-        mountains.addAll(newMountainList);
-        notifyDataSetChanged();
+    public void updateData () {
+        Log.d("T", "TEST");
+        /*items.clear();
+        items.addAll(newMountainList);
+        notifyDataSetChanged();*/
     }
 }
