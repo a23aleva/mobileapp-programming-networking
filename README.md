@@ -1,19 +1,6 @@
 
 # Rapport
-
-**Skriv din rapport här!**
-
-_Du kan ta bort all text som finns sedan tidigare_.
-
-## Följande grundsyn gäller dugga-svar:
-
-- Ett kortfattat svar är att föredra. Svar som är längre än en sida text (skärmdumpar och programkod exkluderat) är onödigt långt.
-- Svaret skall ha minst en snutt programkod.
-- Svaret skall inkludera en kort övergripande förklarande text som redogör för vad respektive snutt programkod gör eller som svarar på annan teorifråga.
-- Svaret skall ha minst en skärmdump. Skärmdumpar skall illustrera exekvering av relevant programkod. Eventuell text i skärmdumpar måste vara läsbar.
-- I de fall detta efterfrågas, dela upp delar av ditt svar i för- och nackdelar. Dina för- respektive nackdelar skall vara i form av punktlistor med kortare stycken (3-4 meningar).
-
-Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
+Jag började med att lägga till en recyclerview widget till min main layout för att sedan skapa en ny layout med en linearlayout innhållandes två textviews som vertikalt ska kunna visa bergsnamn och deras platser. Sedan skapade jag en ny javaklass för Mountain med fält, constructors och metoder som t.ex. getters och setters. När jag var klar med det testade jag att manuellt lägga in tre berg i en arraylist i onCreate. Här skapade jag även en ny instans av en RecyclerViewAdapter som jag sedan även gjorde en egen klass för. I den här klassen använde jag sedan metoderna som medföljde tillsammans med Mountains getters. Jag kopplade även ViewHoldern i RecyclerViewAdaptern till textviewsen i min egna layout. När jag lyckats få adaptern att läsa min arraylist och visa bergen på skärmen testade jag att istället med hjälp av gson omvandla jsonfilen till en lista och ritade ut den på skärmen istället. Slutligen tillät jag internetåtkomst i manifestfilen och kopplade URLn för kända berg och implementerade en updateData-metod i adaptern vilken sedan kallades i onPostExecute för att visa topparna från URLn.
 
 ```
 function errorCallback(error) {
@@ -33,10 +20,4 @@ function errorCallback(error) {
 
 Bilder läggs i samma mapp som markdown-filen.
 
-![](android.png)
-
-Läs gärna:
-
-- Boulos, M.N.K., Warren, J., Gong, J. & Yue, P. (2010) Web GIS in practice VIII: HTML5 and the canvas element for interactive online mapping. International journal of health geographics 9, 14. Shin, Y. &
-- Wunsche, B.C. (2013) A smartphone-based golf simulation exercise game for supporting arthritis patients. 2013 28th International Conference of Image and Vision Computing New Zealand (IVCNZ), IEEE, pp. 459–464.
-- Wohlin, C., Runeson, P., Höst, M., Ohlsson, M.C., Regnell, B., Wesslén, A. (2012) Experimentation in Software Engineering, Berlin, Heidelberg: Springer Berlin Heidelberg.
+![](Picture1.png)
